@@ -1,6 +1,6 @@
 {
     "name": "parsedown/twig",
-    "description": "Official Twig Extension of Parsedown.",
+    "description": "Parsedown's Official Twig Extension",
     "keywords": [
         "parsedown",
         "twig"
@@ -11,20 +11,13 @@
         "issues": "https://github.com/parsedown/twig/issues",
         "source": "https://github.com/parsedown/twig"
     },
-    "authors": [
-        {
-            "name": "Eduardo Agostini",
-            "email": "edu.agostini@gmail.com"
-        }
-    ],
+    "authors": [{
+        "name": "Eduardo Agostini",
+        "email": "edu.agostini@gmail.com"
+    }],
     "require": {
-        "php": ">=5.6",
+        "php": ">=5.4",
         "erusev/parsedown": "~1.6"
-    },
-    "require-dev": {
-        "orchestra/testbench": "^3.4",
-        "php": ">=7.1",
-        "phpunit/phpunit": "^6.3"
     },
     "autoload": {
         "files": [
@@ -34,11 +27,5 @@
             "Parsedown\\": "src/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
-        }
-    },
-    "minimum-stability": "dev",
     "prefer-stable": true
 }
