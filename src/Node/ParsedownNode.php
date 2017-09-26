@@ -23,5 +23,7 @@ class ParsedownNode extends \Twig_Node {
     public function compile(\Twig_Compiler $compiler)
     {
         $compiler->addDebugInfo($this);
+        $compiler->write('echo parsedown("' . $this->getAttribute('text') . '");');
+        $compiler->raw("\n");
     }
 }

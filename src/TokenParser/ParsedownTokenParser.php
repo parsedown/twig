@@ -18,9 +18,19 @@ class ParsedownTokenParser extends \Twig_TokenParser
         $lineno = $token->getLine();
         $stream = $this->parser->getStream();
 
-        $value = 'Morbi leo risus, porta ac consectetur ac, vestibulum at eros.';
+        if (!$stream->test(\Twig_Token::BLOCK_END_TYPE)) {
+            $text = $this->parser->getExpressionParser()->parseExpression()->getAttribute('value');
+        } else {
+            $stream->expect(\Twig_Token::BLOCK_END_TYPE);
 
-        return new ParsedownNode($value, $lineno, $this->getTag());
+            $text = $this->parser->subparse(function (\Twig_Token $token) {
+                return $token->test('endparsedown');
+            }, true)->getAttribute('data');
+        }
+
+        $stream->expect(\Twig_Token::BLOCK_END_TYPE);
+
+        return new ParsedownNode($text, $lineno, $this->getTag());
     }
 
     /**
