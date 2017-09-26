@@ -27,6 +27,9 @@
         "phpunit/phpunit": "^6.3"
     },
     "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
         "psr-4": {
             "Parsedown\\": "src/"
         }
